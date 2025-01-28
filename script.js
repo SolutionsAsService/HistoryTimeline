@@ -1,25 +1,33 @@
-// Fetch data from the JSON file and dynamically populate the horizontal timeline
+// Fetch data from the JSON file and dynamically populate the timeline
 async function loadTimeline() {
     try {
         const response = await fetch('timeline-data.json');
         const events = await response.json();
         const timeline = document.getElementById('timeline');
 
-        events.forEach((event, index) => {
-            // Create a marker for each event
-            const marker = document.createElement('div');
-            marker.className = 'timeline-marker';
-            marker.style.left = `${(index + 1) * 20}%`; // Spread markers evenly
+        const timelineStart = Math.min(...events.map(e => e.start));
+        const timelineEnd = Math.max(...events.map(e => e.end));
+        const timelineRange = timelineEnd - timelineStart;
 
-            const content = `
-                <div class="marker-label">
-                    <strong>${event.event}</strong>
-                    <p>${event.start} - ${event.end}</p>
-                </div>
-            `;
+        events.forEach(event => {
+            // Create a bar for each event
+            const eventBar = document.createElement('div');
+            eventBar.className = 'timeline-event';
+            eventBar.style.backgroundColor = event.color;
 
-            marker.innerHTML = content;
-            timeline.appendChild(marker);
+            // Calculate position and width
+            const startPercent = ((event.start - timelineStart) / timelineRange) * 100;
+            const widthPercent = ((event.end - event.start) / timelineRange) * 100;
+            eventBar.style.left = `${startPercent}%`;
+            eventBar.style.width = `${widthPercent}%`;
+
+            // Add label
+            const label = document.createElement('span');
+            label.className = 'event-label';
+            label.innerText = `${event.event} (${event.start} - ${event.end})`;
+            eventBar.appendChild(label);
+
+            timeline.appendChild(eventBar);
         });
     } catch (error) {
         console.error('Failed to load timeline data:', error);
