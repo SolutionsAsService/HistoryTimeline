@@ -1,0 +1,100 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1d4d2d;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+.timeline-container {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 4px solid #1d4d2d;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #1d4d2d;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.timeline-marker {
+    position: absolute;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.timeline-marker .marker-label {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.timeline-marker::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #1d4d2d;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #666;
+}
