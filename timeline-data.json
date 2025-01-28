@@ -1,0 +1,32 @@
+[
+    {
+        "event": "Ancient History",
+        "start": -3000,
+        "end": 500,
+        "color": "#8B0000"
+    },
+    {
+        "event": "Middle Ages",
+        "start": 500,
+        "end": 1500,
+        "color": "#A0522D"
+    },
+    {
+        "event": "Classical Antiquity",
+        "start": -800,
+        "end": 500,
+        "color": "#FF4500"
+    },
+    {
+        "event": "Late Antiquity",
+        "start": 284,
+        "end": 800,
+        "color": "#FF8C00"
+    },
+    {
+        "event": "Early Modern Period",
+        "start": 1500,
+        "end": 1800,
+        "color": "#006400"
+    }
+]
