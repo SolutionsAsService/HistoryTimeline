@@ -30,16 +30,16 @@ header {
 
 .markers {
     position: absolute;
-    top: 60%; /* Adjust to place below the reference line */
+    top: 55%; /* Adjust to place below the reference line */
     left: 0;
     width: 100%;
-    height: 20px;
+    height: 40px; /* Increase height for better visibility */
     transform-origin: left center; /* Set transform origin for scaling */
 }
 
 .marker {
     position: absolute;
-    top: 10px; /* Align with the reference line */
+    top: 20px; /* Place below the reference line */
     color: #000;
     font-size: 12px;
     white-space: nowrap;
