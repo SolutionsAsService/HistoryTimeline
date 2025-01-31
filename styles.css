@@ -15,7 +15,7 @@ header {
 
 .timeline-wrapper {
     position: relative;
-    height: 2000px; /* Increase height to accommodate more rows */
+    height: 1000px; /* Increase height to accommodate more rows */
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     margin-bottom: 20px;
@@ -24,13 +24,13 @@ header {
 
 .timeline {
     position: relative;
-    height: 80%; /* Adjust to provide more space for events */
+    height: 40%; /* Adjust to provide more space for events */
     transform-origin: left center; /* Set transform origin for scaling */
 }
 
 .markers {
     position: absolute;
-    top: 90%; /* Move markers below the reference line */
+    top: 60%; /* Move markers below the reference line */
     left: 0;
     width: 100%;
     height: 40px; /* Increase height for better visibility */
@@ -65,7 +65,7 @@ header {
     position: absolute;
     width: 100%;
     height: 1px;
-    top: 85%; /* Adjust to provide space above for events */
+    top: 50%; /* Adjust to provide space above for events */
     background-color: #000;
 }
 
