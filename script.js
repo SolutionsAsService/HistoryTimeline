@@ -58,18 +58,27 @@ async function loadTimeline() {
         const baseTimelineLine = document.createElement('div');
         baseTimelineLine.className = 'base-timeline-line';
         timeline.appendChild(baseTimelineLine);
-        
+
         // Add zoom and scroll functionality
         const timelineWrapper = document.querySelector('.timeline-wrapper');
         let scale = 1;
+        document.getElementById('zoom-in').addEventListener('click', function() {
+            scale += 0.1;
+            scale = Math.min(scale, 3);
+            timeline.style.transform = `scale(${scale})`;
+            markers.style.transform = `scale(${scale})`;
+        });
+
+        document.getElementById('zoom-out').addEventListener('click', function() {
+            scale -= 0.1;
+            scale = Math.max(scale, 0.5);
+            timeline.style.transform = `scale(${scale})`;
+            markers.style.transform = `scale(${scale})`;
+        });
+
         timelineWrapper.addEventListener('wheel', function(event) {
             event.preventDefault();
-            if (event.ctrlKey) {
-                scale += event.deltaY * -0.01;
-                scale = Math.min(Math.max(0.5, scale), 3);
-                timeline.style.transform = `scale(${scale})`;
-                markers.style.transform = `scale(${scale})`;
-            } else {
+            if (!event.ctrlKey) {
                 timelineWrapper.scrollLeft += event.deltaY;
             }
         });
