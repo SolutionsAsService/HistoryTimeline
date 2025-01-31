@@ -42,7 +42,7 @@ async function loadTimeline() {
             eventBar.style.width = `${widthPercent}%`;
 
             // Position based on event type
-            const topOffset = eventTypes[event.eventType] * 40; // space out by 40px
+            const topOffset = eventTypes[event.eventType] * 60; // space out by 60px
             eventBar.style.top = `${topOffset}px`;
 
             // Add label
