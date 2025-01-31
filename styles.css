@@ -15,7 +15,7 @@ header {
 
 .timeline-wrapper {
     position: relative;
-    height: 200px; /* Increase height to accommodate multiple rows */
+    height: 300px; /* Increase height to accommodate multiple rows */
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     margin-bottom: 20px;
@@ -39,7 +39,7 @@ header {
 
 .marker {
     position: absolute;
-    top: 5px; /* Align with the reference line */
+    top: 10px; /* Align with the reference line */
     color: #000;
     font-size: 12px;
     white-space: nowrap;
