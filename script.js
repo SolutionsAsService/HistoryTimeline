@@ -11,6 +11,12 @@ async function loadTimeline() {
         const baseStart = -4000; // 4000 BC
         const baseEnd = 2100; // 2100 AD
         const timelineRange = baseEnd - baseStart;
+        const eventTypes = {
+            "historical": 0,
+            "cultural": 1,
+            "scientific": 2,
+            "political": 3
+        };
 
         events.forEach(event => {
             // Create a bar for each event
@@ -23,6 +29,10 @@ async function loadTimeline() {
             const widthPercent = ((event.end - event.start) / timelineRange) * 100;
             eventBar.style.left = `${startPercent}%`;
             eventBar.style.width = `${widthPercent}%`;
+
+            // Position based on event type
+            const topOffset = eventTypes[event.eventType] * 40; // space out by 40px
+            eventBar.style.top = `${topOffset}px`;
 
             // Add label
             const label = document.createElement('span');
