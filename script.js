@@ -7,6 +7,7 @@ async function loadTimeline() {
         }
         const events = await response.json();
         const timeline = document.getElementById('timeline');
+        const markers = document.getElementById('markers');
 
         const baseStart = -4000; // 4000 BC
         const baseEnd = 2100; // 2100 AD
@@ -17,6 +18,16 @@ async function loadTimeline() {
             "scientific": 2,
             "political": 3
         };
+
+        // Add markers to the base timeline
+        for (let year = baseStart; year <= baseEnd; year += 500) {
+            const marker = document.createElement('div');
+            marker.className = 'marker';
+            const leftPercent = ((year - baseStart) / timelineRange) * 100;
+            marker.style.left = `${leftPercent}%`;
+            marker.innerText = year >= 0 ? year : `${Math.abs(year)} BC`;
+            markers.appendChild(marker);
+        }
 
         events.forEach(event => {
             // Create a bar for each event
@@ -47,6 +58,21 @@ async function loadTimeline() {
         const baseTimelineLine = document.createElement('div');
         baseTimelineLine.className = 'base-timeline-line';
         timeline.appendChild(baseTimelineLine);
+        
+        // Add zoom and scroll functionality
+        const timelineWrapper = document.querySelector('.timeline-wrapper');
+        let scale = 1;
+        timelineWrapper.addEventListener('wheel', function(event) {
+            event.preventDefault();
+            if (event.deltaY < 0) {
+                scale += 0.1;
+            } else {
+                scale -= 0.1;
+            }
+            scale = Math.min(Math.max(0.5, scale), 3);
+            timeline.style.transform = `scale(${scale})`;
+            markers.style.transform = `scale(${scale})`;
+        });
 
     } catch (error) {
         console.error('Failed to load timeline data:', error);
