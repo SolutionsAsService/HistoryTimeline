@@ -8,9 +8,9 @@ async function loadTimeline() {
         const events = await response.json();
         const timeline = document.getElementById('timeline');
 
-        const timelineStart = Math.min(...events.map(event => event.start));
-        const timelineEnd = Math.max(...events.map(event => event.end));
-        const timelineRange = timelineEnd - timelineStart;
+        const baseStart = -4000; // 4000 BC
+        const baseEnd = 2100; // 2100 AD
+        const timelineRange = baseEnd - baseStart;
 
         events.forEach(event => {
             // Create a bar for each event
@@ -19,7 +19,7 @@ async function loadTimeline() {
             eventBar.style.backgroundColor = event.color;
 
             // Calculate position and width
-            const startPercent = ((event.start - timelineStart) / timelineRange) * 100;
+            const startPercent = ((event.start - baseStart) / timelineRange) * 100;
             const widthPercent = ((event.end - event.start) / timelineRange) * 100;
             eventBar.style.left = `${startPercent}%`;
             eventBar.style.width = `${widthPercent}%`;
@@ -32,6 +32,12 @@ async function loadTimeline() {
 
             timeline.appendChild(eventBar);
         });
+
+        // Add base timeline line
+        const baseTimelineLine = document.createElement('div');
+        baseTimelineLine.className = 'base-timeline-line';
+        timeline.appendChild(baseTimelineLine);
+
     } catch (error) {
         console.error('Failed to load timeline data:', error);
     }
