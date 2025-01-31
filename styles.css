@@ -67,3 +67,15 @@ header {
     top: 50%;
     background-color: #000;
 }
+
+.controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
