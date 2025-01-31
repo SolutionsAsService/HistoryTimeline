@@ -64,14 +64,14 @@ async function loadTimeline() {
         let scale = 1;
         timelineWrapper.addEventListener('wheel', function(event) {
             event.preventDefault();
-            if (event.deltaY < 0) {
-                scale += 0.1;
+            if (event.ctrlKey) {
+                scale += event.deltaY * -0.01;
+                scale = Math.min(Math.max(0.5, scale), 3);
+                timeline.style.transform = `scale(${scale})`;
+                markers.style.transform = `scale(${scale})`;
             } else {
-                scale -= 0.1;
+                timelineWrapper.scrollLeft += event.deltaY;
             }
-            scale = Math.min(Math.max(0.5, scale), 3);
-            timeline.style.transform = `scale(${scale})`;
-            markers.style.transform = `scale(${scale})`;
         });
 
     } catch (error) {
