@@ -2,11 +2,14 @@
 async function loadTimeline() {
     try {
         const response = await fetch('timeline-data.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
         const events = await response.json();
         const timeline = document.getElementById('timeline');
 
         const timelineStart = Math.min(...events.map(e => e.start));
-        const timelineEnd = Math.max(...events.map(e => e.end));
+        const timelineEnd = Math.max(...events.map(e.end));
         const timelineRange = timelineEnd - timelineStart;
 
         events.forEach(event => {
