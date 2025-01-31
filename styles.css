@@ -14,7 +14,7 @@ header {
 
 .timeline {
     position: relative;
-    height: 100px;
+    height: 200px; /* Increase height to accommodate multiple rows */
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     margin-bottom: 20px;
@@ -23,7 +23,6 @@ header {
 .timeline-event {
     position: absolute;
     height: 30px;
-    top: 35px; /* Center the events in the timeline */
     color: #fff;
     display: flex;
     align-items: center;
