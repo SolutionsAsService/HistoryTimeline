@@ -24,7 +24,7 @@ header {
 
 .timeline {
     position: relative;
-    height: 40%; /* Adjust to provide more space for events */
+    height: 50%; /* Adjust to provide more space for events */
     transform-origin: left center; /* Set transform origin for scaling */
 }
 
