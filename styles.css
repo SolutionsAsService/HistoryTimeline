@@ -15,7 +15,7 @@ header {
 
 .timeline-wrapper {
     position: relative;
-    height: 300px; /* Increase height to accommodate multiple rows */
+    height: 600px; /* Increase height to accommodate multiple rows */
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     margin-bottom: 20px;
