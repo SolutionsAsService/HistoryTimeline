@@ -15,7 +15,7 @@ header {
 
 .timeline-wrapper {
     position: relative;
-    height: 1000px; /* Increase height to accommodate more rows */
+    height: 2000px; /* Increase height to accommodate more rows */
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     margin-bottom: 20px;
@@ -58,6 +58,7 @@ header {
 
 .event-label {
     padding: 5px;
+    font-size: 10px; /* Smaller font size for better readability */
 }
 
 .base-timeline-line {
