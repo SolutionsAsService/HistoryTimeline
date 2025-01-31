@@ -15,7 +15,7 @@ header {
 
 .timeline-wrapper {
     position: relative;
-    height: 600px; /* Increase height to accommodate multiple rows */
+    height: 600px; /* Increase height to accommodate more rows */
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     margin-bottom: 20px;
@@ -30,7 +30,7 @@ header {
 
 .markers {
     position: absolute;
-    top: 50%;
+    top: 60%; /* Adjust to place below the reference line */
     left: 0;
     width: 100%;
     height: 20px;
@@ -48,7 +48,7 @@ header {
 .timeline-event {
     position: absolute;
     height: 30px;
-    color: #fff;
+    color: #000; /* Change font color to black */
     display: flex;
     align-items: center;
     justify-content: center;
