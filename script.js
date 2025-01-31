@@ -8,8 +8,8 @@ async function loadTimeline() {
         const events = await response.json();
         const timeline = document.getElementById('timeline');
 
-        const timelineStart = Math.min(...events.map(e => e.start));
-        const timelineEnd = Math.max(...events.map(e.end));
+        const timelineStart = Math.min(...events.map(event => event.start));
+        const timelineEnd = Math.max(...events.map(event => event.end));
         const timelineRange = timelineEnd - timelineStart;
 
         events.forEach(event => {
